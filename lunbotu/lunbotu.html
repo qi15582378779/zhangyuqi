@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#div1{
+				width: 560px;
+				height: 200px;
+				border: 1px solid palevioletred;
+			}
+			.img22{
+				display: none;
+			}
+			#div2{
+				width: 250px;
+				height: 30px;
+				position: fixed;
+				top: 169px;
+				left: 150px;
+			}
+			span{
+				display: block;
+				float: left;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 50%;
+				background: indianred;
+				margin-left:10px;
+			}
+			.sp{
+				background: blueviolet!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<img src="img/1.jpg" />
+			<img src="img/2.jpg"  class="img22"/>
+			<img src="img/3.jpg"  class="img22"/>
+			<img src="img/4.jpg"  class="img22"/>
+			<img src="img/5.jpg"  class="img22"/>
+			<img src="img/6.jpg"  class="img22"/>
+		</div>
+		<div id="div2"> 
+			<span class="sp">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+		</div>
+	</body>
+	<script>
+		var odiv=document.getElementById("div1");
+		var qdiv=document.getElementById("div2");
+		var img=odiv.getElementsByTagName("img");
+		var span=qdiv.getElementsByTagName("span");
+		for(var i=0;i<span.length;i++){
+			span[i].index=i;
+			span[i].onclick=function(){
+				for(var t=0;t<span.length;t++){
+					span[t].className="";
+					img[t].className="img22";
+				}
+				span[this.index].className="sp";
+				img[this.index].className="";
+			}
+		}
+	</script>
+</html>
