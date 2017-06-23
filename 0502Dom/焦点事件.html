@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#sp1,#sp2{
+				display: none;
+			}
+			#div2{
+				width: 200px;
+				height: 50px;
+				background: yellow;
+			}
+			#div3{
+				width: 200px;
+				height: 50px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="tt" />
+		<span id="sp1">已经获取焦点</span>
+		<span id="sp2">失去焦点</span>
+		<br />
+		<select id="se">
+			<option>年</option>
+			<option>月</option>
+			<option>日</option>
+		</select>
+		<div id="div1"></div>
+		<br />
+		<div id="div2">单击事件</div>
+		<div id="div3">双击事件</div>
+	</body>
+	<script>
+		var a=document.getElementById("tt");
+		a.onfocus=function(){
+			document.getElementById("sp1").style.display="block";
+			document.getElementById("sp2").style.display="none";
+		}
+		a.onblur=function(){
+			document.getElementById("sp1").style.display="none";
+			document.getElementById("sp2").style.display="block";
+		}
+		
+		
+		var b=document.getElementById("se");
+		b.onchange=function(){
+			document.getElementById("div1").innerHTML=b.value;
+		}
+		
+		
+		
+		var c=document.getElementById("div2");
+		c.onclick=function(){
+			alert("单击事件")
+		}
+		var d=document.getElementById("div3");
+		d.ondblclick=function(){
+			alert("双击事件")
+		}
+		
+		
+		
+		document.onkeydown=function(e){
+			var e=e||window.event;
+			alert("按下的键盘编码："+e.keyCode);
+		}
+		document.onkeyup=function(f){
+			var f=f||window.event;
+			alert("按下的键盘编码："+f.keyCode);
+		}
+	</script>
+</html>

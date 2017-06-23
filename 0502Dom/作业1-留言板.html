@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+			h2{
+				text-align: center;
+			}
+			#dd1{
+				width: 500px;
+				background: gainsboro;
+				margin: 0 auto;
+			}
+			#tt{
+				width: 400px;
+				height: 30px;
+				margin-top: 20px;
+				margin-left: 470px;
+			}
+			#bu{
+				width: 90px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>用户留言</h2>
+		<div id="dd1"></div>
+		<input type="text" id="tt" />
+		<input type="button" id="bu" value="提交" onclick="aa()" />
+	</body>
+	<script>
+		var a=document.getElementById("dd1");
+		var b=document.getElementById("tt");
+		var c=document.getElementById("bu");
+		c.onclick=function aa(){
+			if(b.value){
+				var time=document.createElement("div");//创建一个新的容器，存放下面获取的时间
+			    var mydate=new Date();//获取时间
+			    time.innerHTML=mydate.toLocaleString();//给新建的容器赋值
+			    a.appendChild(time);//给留言板添加内容
+			
+			    var nei=document.createElement("div");
+			    nei.innerHTML=b.value;
+			    b.value="";
+			    a.appendChild(nei);
+			}
+		}
+	</script>
+</html>

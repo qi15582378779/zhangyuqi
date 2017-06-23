@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 3000px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="bu" value="点击跳转" onclick="bb()" />
+		<input type="button" id="bu" value="点击撤回" onclick="bc()" />
+		<input type="button" value="打开" onclick="af()" />
+		<input type="button" value="打开" onclick="ad()" />
+	</body>
+	<script>
+		a="上午好";
+		function aa(){
+			var a="下午好";
+			alert(window.a);
+		}
+		aa();
+		
+		
+		function bb(){
+			window.open("xew.html");
+		}
+		function bc(){
+			window.close("xew.html");
+		}
+		
+		
+		function ac(){
+			var pass1=confirm("是否注册？");
+			document.write(pass1);
+		}
+		function ad(){
+			var pass=prompt("请输入密码？");
+			document.write(pass);
+		}
+		
+		
+		
+		window.onscroll(){
+			console.log("测试滚动")
+		}
+	</script>
+</html>
