@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas width="800" height="600" id="canvas"></canvas>
+	</body>
+	<script>
+		function func(){
+			var canvas=document.getElementById("canvas");
+			var cantext=canvas.getContext("2d");
+			var x,y,w,h,r,g,b;
+			x=parseInt(Math.random()*1000);
+			y=parseInt(Math.random()*1000);
+			w=parseInt(Math.random()*1000);
+			h=parseInt(Math.random()*1000);
+			r=Math.floor(Math.random()*256).toString(16);
+			g=Math.floor(Math.random()*256).toString(16);
+			b=Math.floor(Math.random()*256).toString(16);
+			var color="#"+r+g+b;
+			if(x+w>800){
+				func();
+			}else if(y+h>600){
+				func();
+			}else{
+				cantext.strokeStyle=color;
+				cantext.strokeRect(x,y,w,h);
+			}
+		}
+		setInterval(func,1000);
+	</script>
+</html>

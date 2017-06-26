@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas width="800" height="600" id="canvas"></canvas>
+	</body>
+	<script>
+		var r=0;
+		var a=1;
+		function fun(){
+			var canvas=document.getElementById("canvas");
+			var cantext=canvas.getContext("2d");
+			cantext.clearRect(0,0,800,600);
+			a-=0.01;
+			r+=1;
+			if(r>=200){
+				r=200;
+			}
+			cantext.beginPath();
+			cantext.arc(150,150,r,0,360*Math.PI/180,false);
+			cantext.fillStyle="rgba(0,50,90,"+a+")";
+			cantext.fill();
+			cantext.closePath();
+		}
+		setInterval(fun,10);
+		
+//		var canvas=document.getElementById("canvas");
+//		var cantext=canvas.getContext("2d");
+//		var r=0
+//		for(var i=0;i<200;i++){
+//			r+=1
+//			setTimeout({
+//				function func(){
+//					cantext.beginPath();
+//					cantext.arc(150,150,r,0,360*Math.PI/180,false);
+//					cantext.fillStyle="red";
+//					context.fill();
+//					context.closePath();
+//				}
+//			)func,10*i}
+//		}
+	</script>
+</html>

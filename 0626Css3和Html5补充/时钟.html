@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var cantext=canvas.getContext("2d");
+//		获取时间
+		function func(){
+			cantext.clearRect(0,0,600,600);
+			var time=new Date();
+			var year=time.getFullYear();//年
+			var hour=time.getHours();//小时
+			var sex=time.getSeconds();//秒
+			var max=time.getMinutes();//分
+			if(hour>12){
+				hour=hour-12;
+			}
+//			console.log(hour)
+//		          画时钟
+			cantext.beginPath();
+			cantext.strokeStyle="deepskyblue";
+			cantext.lineWidth=5;
+			cantext.arc(300,300,150,0,2*Math.PI,false);
+			cantext.stroke();
+			cantext.closePath();
+//			画小时刻度
+			for(var i=1;i<=12;i++){
+				cantext.save();
+				cantext.translate(300,300);
+				cantext.beginPath();
+				cantext.strokeStyle="#000000";
+				cantext.lineWidth=8;
+				cantext.rotate((i*30)*Math.PI/180);
+				cantext.moveTo(0,-125);
+				cantext.lineTo(0,-145);
+				cantext.closePath();
+				cantext.stroke();
+				cantext.restore();
+			}
+//			画分钟刻度
+			for(var i=1;i<=60;i++){
+				cantext.save();
+				cantext.translate(300,300);
+				cantext.beginPath();
+				cantext.strokeStyle="#000000";
+				cantext.lineWidth=4;
+				cantext.rotate((i*6)*Math.PI/180);
+				cantext.moveTo(0,-135);
+				cantext.lineTo(0,-145);
+				cantext.closePath();
+				cantext.stroke();
+				cantext.restore();
+			}
+//			画时针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.strokeStyle="sandybrown";
+			cantext.lineWidth=4;
+			cantext.rotate((hour*30)*Math.PI/180);
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-90);
+			cantext.closePath();
+			cantext.stroke();
+//			头部三角
+			cantext.beginPath();
+			cantext.fillStyle="black";
+			cantext.moveTo(0,-105);
+			cantext.lineTo(-3,-90);
+			cantext.lineTo(3,-90);
+			cantext.closePath();
+			cantext.fill();
+			cantext.restore();
+//			画分针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.strokeStyle="hotpink";
+			cantext.lineWidth=4;
+			cantext.rotate((max*6)*Math.PI/180);
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-100);
+			cantext.closePath();
+			cantext.stroke();
+//			头部三角
+			cantext.beginPath();
+			cantext.fillStyle="black";
+			cantext.moveTo(0,-115);
+			cantext.lineTo(-3,-100);
+			cantext.lineTo(3,-100);
+			cantext.closePath();
+			cantext.fill();
+			cantext.restore();
+// 			画秒针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.strokeStyle="teal";
+			cantext.lineWidth=4;
+			cantext.rotate((sex*6)*Math.PI/180);
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-110);
+			cantext.closePath();
+			cantext.stroke();
+//			圆心上的圆
+			cantext.beginPath();
+			cantext.strokeStyle="aqua"
+			cantext.fillStyle="chartreuse"
+			cantext.arc(0,0,5,0,2*Math.PI,false);
+			cantext.closePath();
+			cantext.stroke();
+			cantext.fill();
+//			轴上的圆
+			cantext.beginPath();
+			cantext.strokeStyle="aqua"
+			cantext.fillStyle="chartreuse"
+			cantext.arc(0,-95,5,0,2*Math.PI,false);
+			cantext.closePath();
+			cantext.stroke();
+			cantext.fill();
+//			头部三角
+			cantext.beginPath();
+			cantext.fillStyle="black";
+			cantext.moveTo(0,-125);
+			cantext.lineTo(-3,-110);
+			cantext.lineTo(3,-110);
+			cantext.closePath();
+			cantext.fill();
+			cantext.restore();
+		}
+		func();
+		setInterval(func,1000);
+	</script>
+</html>
