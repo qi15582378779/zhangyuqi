@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.css" />
+		<script type="text/javascript" src="bootstrap-3.3.7/dist/js/bootstrap.js" ></script>
+		<script src="js/jquery-2.1.0.js"></script>
+	</head>
+	<style>
+	    .logo{
+	    	display: block;
+	    	float: left;
+	    }
+		#example-navbar-collapse{
+			float: left;
+			margin-top: 1rem;
+			margin-left: 30rem;
+		}
+		.navbar-right{
+			margin-top: 0.8rem;
+			margin-left: 0.5rem;
+		}
+	</style>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+		    <div class="container-fluid">
+			    <div class="navbar-header">
+			        <button type="button" class="navbar-toggle" data-toggle="collapse"
+			                data-target="#example-navbar-collapse">
+			            <span class="sr-only">切换导航</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			        </button>
+			    </div>
+			    <a href="index.html" class="logo"><img src="img/1.png"/></a>
+			    <!--<div class="navbar-right">
+					<a href="#" class="btn btn-squared btn-success">注册</a>
+					<a href="#" class="btn btn-squared btn-primary btn-outline">登录</a>
+			    </div>-->
+			    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+			        <ul class="nav navbar-nav">
+			        	<li><a  href="#" title="首页" style="color: #46B8DA;">首页</a></li>
+			            <li class="dropdown">
+			                <a href="#" title="产品" class="dropdown-toggle" data-toggle="dropdown">
+			                                               产品<b class="caret"></b>
+			                </a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="#">智能手表</a></li>
+			                    <li><a href="#">智能眼镜</a></li>
+			                    <li><a href="#">机器人</a></li>
+			                    <li class="divider">无人机</li>
+			                    <li><a href="#">体感车</a></li>
+			                </ul>
+			            </li>
+			            <li><a href="#" title="支持">支持</a></li>
+			            <li><a href="#" title="博客">博客</a></li>
+			        </ul>
+			        <div class="navbar-right">
+						<a href="#" class="btn btn-squared btn-success">注册</a>
+						<a href="#" class="btn btn-squared btn-primary btn-outline">登录</a>
+			   		</div>
+			    </div>
+		    </div>
+		</nav>
+
+	</body>
+</html>

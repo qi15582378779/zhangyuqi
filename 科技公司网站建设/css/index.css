@@ -1,0 +1,292 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+		/*body,html{
+			font-size: 1rem;
+		}*/
+		.container-fluid{
+			/*background: red;*/
+			height: 6rem;
+		}
+		.container{
+			height: 6rem;
+		}
+		.navbar-brand{
+			padding: 0;
+			width: 14rem;
+			height: 6rem;
+		}
+		.navbar-brand>img{
+			width: 14rem;
+			height: 6rem;
+		}
+		.collapse{
+			margin-top: 1rem;
+			float: right;
+			height: 6rem;
+		}
+		.navbar-nav>li{
+			width: 6rem;
+		}
+		.navbar-nav>li>a{
+			text-align: center;
+		}
+		.dropdown-menu{
+			height: 14.1rem;
+		}
+		.dropdown-menu>li{
+			height: 2.8rem;
+		}
+		.navbar-toggle{
+			margin-top: 1rem;
+			background: white;
+			border: 0.1rem solid gainsboro;
+		}
+		.icon-bar{
+			background: gray;
+		}
+		#yinc{
+			width: 100%;
+			height: auto;
+			/*background: yellow;*/
+			display: none;
+		}
+		.top{
+			width: 100%;
+			text-align: center;
+		}
+		.menu{
+			width: 100%;
+			height: 17rem;
+			position: inherit;
+			background: none;
+			border: none;
+			padding: 0;
+			margin-bottom: 1rem;
+			box-shadow: none;
+		}
+		@media only screen and (max-width:300px ) {
+			body{
+				font-size: 2rem;
+			}
+			.diva1>.img{
+				width: 10rem;
+				height: 10rem;
+			}
+			.diva>.span{
+				display: block;
+				width: 4rem;
+				height: 4rem;
+			}
+			.media-left>a{
+				display: block;
+				width:5rem;
+				height: 5rem;
+			}
+			.media-left>a>img{
+				/*display: block;*/
+				width:5rem;
+				height: 5rem;
+			}
+			p{
+				height: 3rem;
+				font-size: 2rem;
+			}
+			.diva{
+				height: 40rem;
+				font-size: 2rem;
+			}
+		}
+		
+		@media only screen and (min-width:301px ) and (max-width:700px) {
+			.h1{
+				font-size: 3rem;
+			}
+			.diva>.pp{
+				font-size: 1rem;
+			}
+			.diva>h3{
+				font-size: 1.5rem;
+			}
+			.diva>.span{
+				display: block;
+				width: 7rem;
+				height: 7rem;
+				line-height: 7rem;
+			}
+			.nav > li > a{
+				font-size: 0.5rem;
+				padding: 1rem 1rem;
+			}
+			.caption>h3{
+				font-size: 1rem;
+			}
+			.caption>.p1{
+				font-size: 0.5rem;
+			}
+			.diva1>.img{
+				width: 10rem;
+				height: 10rem;
+				margin: 0 auto;
+			}
+			.media-left>a>img{
+				width:9rem;
+				height: 9rem;
+			}
+			.media-body{
+				font-size: 1rem;
+			}
+			.collapse{
+				display: none;
+			}
+			.navbar-header{
+				display: block;
+			}
+			.list-group-item>a{
+				font-size: 0.5rem;
+			}
+			.aa{
+				font-size: 1rem;
+			}
+			.wenz>p{
+				font-size: 0.5rem;
+			}
+			.media-body>h4{
+				font-size: 1rem;
+			}
+			.media-body>p{
+				font-size: 0.3rem;
+			}
+			.hou>p{
+				font-size: 1rem;
+			}
+		}
+		@media only screen and (min-width: 701px){
+			#yinc{
+				display: none;
+			}
+		}
+		/*中间部分*/
+		.zhong{
+			height: auto;
+			background: white;
+		}
+		.nei{
+			margin-top: 5rem;
+			height: auto;
+		}
+		.h1{
+			text-align: center;
+		}
+		.p{
+			text-align: center;
+			margin-bottom: 5rem;
+		}
+		.span{
+			display: block;
+			width: 9rem;
+			height: 9rem;
+			line-height: 9rem;
+			border-radius: 50%;
+			text-align: center;
+			background: gainsboro;
+			margin: auto;
+		}
+		.diva{
+			height: 30rem;
+		}
+		.diva:hover .iconfont{
+			color: white;
+		}
+		.diva:hover .span{
+			background: dodgerblue;
+		}
+		h3{
+			text-align: center;
+			font-weight: bolder;
+		}
+		/*科技产品*/
+		.keji{
+			height: auto;
+			background: #F5F5F5;
+		}
+		.dao{
+			text-align: center;
+		}
+		.nav-ul{
+			margin: 0 auto;
+			display: inline-block;
+		}
+		.nav-ul > li{
+			float: left;
+		}
+		.nav > li > a{
+			padding: 1rem 1.3rem;
+		}
+		.tu{
+			margin-top: 2rem;
+		}
+		.img{
+			width: 20rem;
+			height: 20rem;
+			margin: 0 auto;
+		}
+		.diva1{
+			height: auto;
+		}
+		.p1{
+			text-align: center;
+			color: red;
+		}
+		.media{
+			height: 15rem;
+			margin: 0;
+		}
+		.boke{
+			height: auto;
+		}
+		.boke>img{
+			width: 12rem;
+			height: 9rem;
+		}
+		/*关于我们*/
+		.guanyu{
+			height: 52rem;
+			background: #F5F5F5;
+		}
+        .rong{
+        	height: auto;
+        }
+        .thumbnail{
+        	height: auto;
+        	/*margin-bottom: 5rem;*/
+        }
+		/*尾部*/
+		.weia{
+			height: auto;
+			border-bottom: 0.1rem solid gainsboro;
+		}
+  		.wei{
+  			text-align: center;
+  			height: auto;
+  		}
+		.list-group{
+			text-align: center;
+			height: auto;
+		}
+		.list-group-item{
+			border:none;
+			text-align: center;
+			/*padding: 0.3rem 0.5rem;*/
+		}
+		.list-group-item>a{
+			text-decoration: none;
+			color: black;
+			text-align: center;
+		}
+		.aa{
+			font-size: 1.5rem;
+			font-weight: bolder;
+		}
+		.hou>p{
+			text-align: center;
+		}
