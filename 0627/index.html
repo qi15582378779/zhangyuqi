@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var cantext=canvas.getContext("2d");
+		function shi(){
+			cantext.clearRect(0,0,600,600);
+//			获取时间
+			var time=new Date();
+			var hour=time.getHours();
+			var mau=time.getMinutes();
+			var sis=time.getSeconds();
+//			画时钟
+			cantext.beginPath();
+			cantext.strokeStyle="aqua";
+			cantext.lineWidth=5;
+			cantext.arc(300,300,200,0,2*Math.PI,false);
+			cantext.stroke();
+			cantext.closePath();
+			
+//			华刻度
+			for(var i=1;i<=12;i++){
+				cantext.save();
+				cantext.translate(300,300);
+				cantext.beginPath();
+				cantext.rotate(i*30*Math.PI/180);
+				cantext.strokeStyle="#000000";
+				cantext.lineWidth=8;
+				cantext.moveTo(0,-175);
+				cantext.lineTo(0,-190);
+				cantext.closePath();
+				cantext.stroke();
+				cantext.restore();
+			}
+			for(var i=1;i<=60;i++){
+				cantext.save();
+				cantext.translate(300,300);
+				cantext.beginPath();
+				cantext.rotate(i*6*Math.PI/180);
+				cantext.strokeStyle="#000000";
+				cantext.lineWidth=4;
+				cantext.moveTo(0,-185);
+				cantext.lineTo(0,-190);
+				cantext.closePath();
+				cantext.stroke();
+				cantext.restore();
+			}
+//			画时针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.rotate((hour*30*Math.PI/180)+(30/60*mau*Math.PI/180));
+			cantext.strokeStyle="#000000";
+			cantext.lineWidth=5;
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-140);
+			cantext.closePath();
+			cantext.stroke();
+			cantext.restore();
+//			画分针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.rotate(mau*6*Math.PI/180);
+			cantext.strokeStyle="#000000";
+			cantext.lineWidth=5;
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-150);
+			cantext.closePath();
+			cantext.stroke();
+			cantext.restore();
+//			画秒针
+			cantext.save();
+			cantext.translate(300,300);
+			cantext.beginPath();
+			cantext.rotate(sis*6*Math.PI/180);
+			cantext.strokeStyle="#000000";
+			cantext.lineWidth=5;
+			cantext.moveTo(0,10);
+			cantext.lineTo(0,-160);
+			cantext.closePath();
+			cantext.stroke();
+			cantext.restore();
+		}
+		shi();
+		setInterval(shi,1000);
+	</script>
+</html>

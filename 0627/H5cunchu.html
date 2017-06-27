@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<button id="btn">存储</button>
+		<button id="read">获取</button>
+		<button id="del">删除</button>
+		<button id="clear">清空</button>
+	</body>
+	<script type="text/javascript">
+		/*
+		本地存储：localStorage
+		会话存储（临时存储）：sessionStorage
+		 */
+		var tex=document.getElementById("text");
+		var btn=document.getElementById("btn");
+		var read=document.getElementById("read");
+		var del=document.getElementById("del");
+		var clear=document.getElementById("clear");
+//		var val=tex.value;
+//		var key=new Date().getTime();
+		btn.onclick=function(){
+			var val=tex.value;
+			var key=new Date().getTime();
+			localStorage.setItem(key,val);//存储
+		}
+		read.onclick=function(){
+			var keys=localStorage.key(4)
+//			for(var i=0;i<key.length;i++){
+			console.log( localStorage.getItem(keys));//获取
+//			}
+		}
+		del.onclick=function(){
+			var keys=localStorage.key(4)
+			localStorage.removeItem(keys);//删除
+		}
+		clear.onclick=function(){
+			localStorage.clear();//清空
+		}
+	</script>
+</html>
