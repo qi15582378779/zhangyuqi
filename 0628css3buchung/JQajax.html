@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+		<input type="text" id="name" />
+		<input type="button" value="提交" id="but" />
+	</body>
+	<script>
+		var btn=document.getElementById("but");
+		btn.onclick=function(){
+			var txt1=document.getElementById("txt").value;
+			var txt2=document.getElementById("name").value;
+			$.ajax({
+				type:"POST",
+				url:"http://192.168.100.99:3000/",
+				async:true,
+				data:{name:txt1,content:txt2},
+				dataType:"json"
+			});
+		}
+	</script>
+</html>

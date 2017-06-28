@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul{
+			display: flex;
+			flex-direction: row;/*改变主轴的方向*/
+			height: 100%;
+			background: greenyellow;
+			align-items: center;/*用来设置容器中所有条目在交叉轴上的默认对齐方向.*/
+			/*flex-wrap: wrap;超出部分换行*/
+			/*分配多余空间*/
+			justify-content: center;
+			/*flex-start：主轴方向      flex-end: 主轴反方向       center: 挤在中间     space-between: 中间有空白*/
+			
+		}
+		li{
+			list-style: none;
+			flex-basis: 200px;/*和宽度一样*/
+			height: 100px;
+		}
+	</style>
+	<body>
+		<ul>
+			<li style="background: red;order: 5;">111</li>
+			<li style="background: yellow;order: 3;">222</li>
+			<li style="background: green;order: 2;">333</li>
+			<li style="background: blue;order: 4;">444</li>
+			<li style="background: orange;order: 1;">555</li>
+		</ul>
+	</body>
+</html>
