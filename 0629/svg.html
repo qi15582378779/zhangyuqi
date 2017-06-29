@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<!-- 画矩形 rx和 ry 能使矩形产生圆角 -->
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+   		<rect x="10" y="10" rx="20" width="300" height="300" style="fill:rgb(125,125,125);stroke-width:5;stroke:rgb(255,0,0)" >
+   	</svg>
+   	<!-- 画圆 cx和 cy 定义圆的坐标   r为半径 -->
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+   		<circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+	</svg> 
+	<!-- 椭圆 rx和 ry 定义水平半径和垂直半径 -->
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  		<ellipse cx="300" cy="80" rx="200" ry="50" style="fill:yellow;stroke:purple;stroke-width:2" />
+	</svg>
+	<!-- 路径 -->
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+	  	<defs>
+	    	<path id="path1" d="M250,100 a1,1 0 0,0 -150,0" />
+	  	</defs>
+  		<text x="0" y="100" style="fill:red;">
+    		<textPath xlink:href="#path1">我是一只鸟我是一只鸟我是一只鸟</textPath>
+  		</text>
+	</svg>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>新闻列表</title>
+</head>
+<body>
+	<ul id="ull">
+		<!-- <li></li> -->
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		type:"GET",
+		url:"js/data.json",
+		async:true,
+		dataType:"json",
+		success:function(data){
+			console.log(data)
+			var listarr=data.list;
+			// console.log(listarr)
+			var ul=document.getElementById("ull");
+			// console.log(ul)
+			for (var i = 0; i < listarr.length; i++) {
+				ul.innerHTML+="<li><a href='neirong.html?type="+i+"'>"+listarr[i].title+"</a></li>";
+			}
+		}
+	})
+</script>
+</html>
