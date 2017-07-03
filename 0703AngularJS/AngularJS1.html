@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="utf-8" />
+		<title>AngularJS</title>
+		<script src="js/angular.js"></script>
+	</head>
+	<body>
+		<div>
+			<h1>算术运算符</h1>
+			<h2>{{1+3}}</h2>
+			<h1>比较运算符</h1>
+			<h2>{{2>5}}</h2>
+			<h1>逻辑运算符</h1>
+			<h2>与： {{2>5 && 3<5}}</h2>
+			<h2>或： {{2>5 || 3<5}}</h2>
+			<h1>三目运算符</h1>
+			<h2>{{2>5?"1212":"djsahj"}}</h2><!--条件成立输出语句1，不成立输出语句2-->
+			<h1>赋值运算符</h1>
+			<h2>{{num=55}}</h2>
+			<h1>特殊运算符</h1>
+			<h2 ng-init="str='dasjhk'">{{str}}</h2>
+			<h2>{{str.split("")}}</h2><!--字符串转化成数组-->
+			<h2>{{str.substr(2,3)}}</h2><!--截取字符串-->
+		</div>
+	</body>
+</html>

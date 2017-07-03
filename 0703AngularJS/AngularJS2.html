@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="ziji">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="zi1">
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="zi2">
+			<h1>{{sex}}</h1>
+		</div>
+	</body>
+	<script>
+		angular.module("ziji",[]).controller("zi1",function($scope){
+			$scope.name="zhangsan"
+		}).controller("zi2",function($scope){
+			$scope.sex="女"
+		})
+	</script>
+</html>

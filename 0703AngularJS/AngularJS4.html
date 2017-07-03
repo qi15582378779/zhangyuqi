@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="myobj">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script src="js/angular.js"></script>
+	</head>
+	<body>
+		<table class="table table-bordered" ng-controller="obj-1">
+			<tr>
+				<td>序号</td>
+				<td>名称</td>
+				<td>价格</td>
+				<td>图片</td>
+				<td>日期</td>
+			</tr>
+			<tr ng-repeat="i in obj.data">
+				<td>{{i.nub}}</td>
+				<td>{{i.name}}</td>
+				<td>{{i.jiage}}</td>
+				<td><img ng-src="img/{{i.img}}"/></td>
+				<td>{{i.time}}</td>
+			</tr>
+			
+		</table>
+	</body>
+	<script>
+//		angular.module("myobj",[]).controller("obj1",function($scope){
+//			$scope.obj={
+//				nub:"1",
+//				name:"三星",
+////			img:1,
+//				jiage:"200",
+//				time:"07.05"
+//			}
+//		}).controller("obj2",function($scope){
+//			$scope.obj={
+//				nub:"2",
+//				name:"苹果",
+//				img:"2",
+//				jiage:"15654",
+//				time:"07.05"
+//			}
+//		}).controller("obj3",function($scope){
+//			$scope.obj={
+//				nub:"3",
+//				name:"oppo",
+//				img:"3",
+//				jiage:"14554",
+//				time:"08.05"
+//			}
+//		}).controller("obj4",function($scope){
+//			$scope.obj={
+//				nub:"4",
+//				name:"vivo",
+//				img:"4",
+//				jiage:"15784",
+//				time:"11.05"
+//			}
+//		})
+	angular.module("myobj",[]).controller("obj-1",function($scope){
+		$scope.obj={
+			"data":[
+				{
+					"nub":"1",
+					"name":"三星",
+					"jiage":"5256",
+					"img":"1.jpg",
+					"time":"01.02"
+				},{
+					"nub":"2",
+					"name":"苹果",
+					"jiage":"4456",
+					"img":"2.jpg",
+					"time":"07.02"
+				},{
+					"nub":"3",
+					"name":"oppo",
+					"jiage":"4546",
+					"img":"3.jpg",
+					"time":"08.02"
+				},{
+					"nub":"4",
+					"name":"vivo",
+					"jiage":"5451",
+					"img":"4.jpg",
+					"time":"08.02"
+				}
+			]
+		}
+	})
+	</script>
+</html>

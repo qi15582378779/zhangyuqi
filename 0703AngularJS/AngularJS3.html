@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myobj">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="obj1">
+			<ul>
+				<li ng-repeat="(i,j) in obj">{{i}}+{{j}}</li>
+			</ul>
+		</div>
+		<div ng-controller="obj2">
+			<ul>
+				<li ng-repeat="(a,b) in arr">{{a}}+{{b}}</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		angular.module("myobj",[]).controller("obj1",function($scope){
+			$scope.obj={
+				name:"tom",
+				sex:"男",
+				age:"22"
+			}
+		}).controller("obj2",function($scope){
+			$scope.arr=[23113,545,78789,3454,454];
+		})
+	</script>
+</html>
