@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css"/>
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<div ng-controller="ya1">
+				<h1>ngShow/ngHide</h1>
+				<span ng-Hide="true">显示</span><!--Hide和Show首字母大写-->
+				<p>{{name}}</p>
+				<input type="checkbox" ng-Checked="true" /><!--默认选中-->
+				<input type="checkbox" ng-Disabled="true" /><!--禁用-->
+			</div>
+			<div>
+				<p>{{name}}</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		angular.module("app",[]).controller("ya1",function($scope,$rootScope){
+//			$scope.name="gkj";
+			$rootScope.name="啊定时开机" /*$rootScope全局作用*/
+		})
+	</script>
+</html>

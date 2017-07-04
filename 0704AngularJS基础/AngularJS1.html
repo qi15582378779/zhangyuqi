@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="data">
+			<table class="table table-bordered">
+				<tr ng-style="mystyle">
+					<th ng-style="sty">序号</th>
+					<th ng-style="sty">商品名称</th>
+					<th ng-style="sty">商品价格</th>
+					<th ng-style="sty">图片</th>
+					<th ng-style="sty">日期</th>
+					<th ng-style="sty">删除</th>
+				</tr>
+				<tr ng-repeat="(j,i) in list">
+					<td ng-style="sty">{{j+1}}</td>
+					<td ng-style="sty">{{i.name}}</td>
+					<td ng-style="sty">{{i.price}}</td>
+					<td ng-style="sty"><img ng-src="img/{{i.img}}.jpg" width="70" /></td>
+					<td ng-style="sty">{{i.date}}</td>
+					<td ng-style="sty"><button class="btn btn-info" ng-click="del(j)">删除</button></td>
+				</tr>
+			</table>
+			<button class="btn btn-info btn-block" ng-click="jz()">加载更多</button>
+		</div>
+	</body>
+	<script>
+		angular.module("myapp",["ng"]).controller("data",function($scope){
+			$scope.list=[
+				{
+//					"nub":"1",
+					"name":"雪碧1",
+					"price":"5321",
+					"img":"1",
+					"date":new Date()
+				},{
+//					"nub":"2",
+					"name":"雪碧2",
+					"price":"5321",
+					"img":"2",
+					"date":new Date()
+				},{
+//					"nub":"3",
+					"name":"雪碧3",
+					"price":"5321",
+					"img":"3",
+					"date":new Date()
+				},{
+//					"nub":"4",
+					"name":"雪碧4",
+					"price":"5321",
+					"img":"4",
+					"date":new Date()
+				},{
+//					"nub":"5",
+					"name":"雪碧5",
+					"price":"5321",
+					"img":"1",
+					"date":new Date()
+				}
+			]
+//			点击删除
+			$scope.del=function(index){
+				$scope.list.splice(index,1);
+			}
+			//添加样式
+			$scope.mystyle={
+				"background":"red",
+				"color":"blue"
+			}
+			$scope.sty={
+				"text-align":"center"
+			}
+			//加载更多
+			$scope.jz=function(){
+				for(var i=0;i<4;i++){
+					var obj=new Object();
+					obj.name="可乐";
+					obj.price="5465";
+					obj.img=i+1;
+					obj.date=new Date();
+					$scope.list.push(obj)
+				}
+			}
+		})
+	</script>
+</html>

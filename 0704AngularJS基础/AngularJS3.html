@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="jj">
+			单价：<input type="number" ng-model="dan" />
+			数量：<input type="number" ng-model="shu" />
+			小计：<span>{{dan*shu}}</span>
+		</div>
+		<div ng-controller="jj1">
+			<input type="checkbox" ng-click="chang()" ng-model="jin"/>我同意本站的使用条款
+			<button ng-Disabled="kj">同意</button>
+			<br />
+			<button ng-click="dianji()">点击计算</button><span>次数：{{i}}</span>
+		</div>
+	</body>
+	<script>
+		angular.module("app",[]).controller("jj",function($scope){
+			$scope.dan=0;
+			$scope.shu=0;
+		}).controller("jj1",function($scope){
+			$scope.jin=false;
+			$scope.kj=true;
+			$scope.chang=function(){
+				alert(1)
+				var j=$scope.jin;
+//				var k=$scope.kj;
+				if(j==true){
+					$scope.kj=false;
+				}else{
+					$scope.kj=true;
+				}
+			}
+			$scope.i=0;
+			$scope.dianji=function(){
+				$scope.i++;
+			}
+		})
+	</script>
+</html>
