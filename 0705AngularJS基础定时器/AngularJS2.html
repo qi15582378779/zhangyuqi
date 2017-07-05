@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="js/angular.js"></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="kk">
+			<select ng-model="tt">
+				<option value="1">上海1</option>
+				<option value="2">上海2</option>
+				<option value="3">上海3</option>
+				<option value="4">上海4</option>
+			</select>
+			<h1>{{tt}}</h1>
+			<div>
+				<img ng-src="img/{{tt}}.jpg" />
+			</div>
+		</div>
+		
+	</body>
+	<script>
+		angular.module("app",[]).controller("kk",function($scope){
+			$scope.tt=0;
+//			if($scope.tt==0){
+//				$("img").css({"display":"none"})
+//			}else{
+//				$("img").css({"display":"black"})
+//			}
+		})
+	</script>
+</html>

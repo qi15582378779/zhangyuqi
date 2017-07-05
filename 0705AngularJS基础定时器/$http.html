@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="ajx">
+			<table class="table table-bordered">
+				<tr>
+					<th>author</th>
+					<th>date</th>
+					<th>content</th>
+					<th>title</th>
+				</tr>
+				<tr ng-repeat="i in Arr">
+					<td>{{i.author}}</td>
+					<td>{{i.date}}</td>
+					<td>{{i.content}}</td>
+					<td>{{i.title}}</td>
+				</tr>
+			</table>
+			<button class="btn btn-block btn-info" ng-click="jiaz()">加载更多</button>
+		</div>
+	</body>
+	<script>
+		angular.module("app",[]).controller("ajx",function($http,$scope){
+//			$http({
+//				method:"GET",
+//				url:"js/data.json"
+//			}).then(function(success){
+//				console.log(success.data.list)
+//				$scope.data=success.data.list;
+//			})
+			$http.get("js/data.json").then(function(success){
+				console.log(success.data.list)
+				var arr1=success.data.list;
+				console.log(arr1)
+				var arr=arr1.splice(0,5);
+				$scope.Arr=arr;
+				$scope.jiaz=function(){
+					alert(1)
+					var arr2=arr1.splice(0,5);
+					$scope.Arr=$scope.Arr.concat(arr2);
+				}
+			})
+			
+		})
+	</script>
+</html>

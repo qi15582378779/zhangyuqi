@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="kk">
+			<table class="table">
+				<tr>
+					<th>小写</th>
+					<th>大写</th>
+					<th>数字</th>
+					<th>钱</th>
+					<th>时间</th>
+				</tr>
+				<tr ng-repeat="i in arr">
+					<td>{{i.low | lowercase}}</td>
+					<td>{{i.upp | uppercase}}</td>
+					<td>{{i.num | number:2}}</td>
+					<td>{{i.pri | currency:"￥"}}</td>
+					<td>{{i.date | date:" yyyy-MM-dd HH:mm:ss"}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script>
+		angular.module("app",[]).controller("kk",function($scope){
+			$scope.arr=[
+				{"low":"SADASD","upp":"hasdkj","num":"4154","pri":"454","date":new Date()},
+				{"low":"SADASD","upp":"hasdkj","num":"4154","pri":"454","date":new Date()},
+				{"low":"SADASD","upp":"hasdkj","num":"4154","pri":"454","date":new Date()},
+				{"low":"SADASD","upp":"hasdkj","num":"4154","pri":"454","date":new Date()}
+			]
+		})
+	</script>
+</html>

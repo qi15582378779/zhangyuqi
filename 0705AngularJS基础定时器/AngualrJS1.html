@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<style>
+		.div{
+			position: relative;
+		}
+		#sp1{
+			position: absolute;
+			top: 100px;
+			left: 0;
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			border-radius: 50%;
+			background: gainsboro;
+		}
+		#sp2{
+			position: absolute;
+			top: 100px;
+			left: 220px;
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			border-radius: 50%;
+			background: gainsboro;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<div class="div" ng-controller="ig">
+				<img ng-src="img/{{i}}.jpg" />
+				<span id="sp1" ng-click="dian1()" ng-mouseleave="likai()"><</span>
+				<span id="sp2" ng-click="dian2()" ng-mouseleave="likai()">></span>
+			</div>
+			<div ng-controller="kk">
+				<table class="table table-bordered">
+					<tr>
+						<td><input type="checkbox" ng-checked="jj" /></td>
+						<td>张三</td>
+						<td>23</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" ng-checked="jj" /></td>
+						<td>李四</td>
+						<td>28</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" ng-checked="jj" /></td>
+						<td>王五</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<input type="checkbox" ng-click="chang()" ng-model="quan" />全选或取消全选
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script>
+		angular.module("app",[]).controller("ig",function($scope,$interval){
+			$scope.i=1;
+			$scope.fun=function(){
+				$scope.i++;
+				if($scope.i>4){
+					$scope.i=1
+				}
+			}
+			var t=$interval($scope.fun,1000);
+			$scope.dian1=function(){
+//				alert(1)
+				$interval.cancel(t);
+				$scope.i--;
+				if($scope.i<1){
+					$scope.i=4
+				}
+			}
+			$scope.dian2=function(){
+//				alert(1)
+				$interval.cancel(t);
+				$scope.i++;
+				if($scope.i>4){
+					$scope.i=1
+				}
+			}
+			$scope.likai=function(){
+				t=$interval($scope.fun,1000)
+			}
+		}).controller("kk",function($scope){
+			$scope.chang=function(){
+//				alert(1)
+				if($scope.quan==true){
+					$scope.jj=true
+				}else{
+					$scope.jj=false
+				}
+			}
+		})
+	</script>
+</html>
