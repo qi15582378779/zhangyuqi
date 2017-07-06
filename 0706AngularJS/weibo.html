@@ -1,0 +1,25 @@
+<style>
+	.d1{
+		width: 100%;
+		height: auto;
+		background: lightskyblue;
+	}
+</style>
+<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+	<div class="d1" ng-app="app" ng-controller="ajx">
+		<table class="table table-bordered">
+			<tr>
+				<th>author</th>
+				<th>date</th>
+				<th>content</th>
+				<th>title</th>
+			</tr>
+			<tr ng-repeat="j in arr">
+				<td>{{j.author}}</td>
+				<td>{{j.date}}</td>
+				<td>{{j.content}}</td>
+				<td>{{j.title}}</td>
+			</tr>
+		</table>
+		<button class="btn btn-block btn-info" ng-style="mystyle" ng-click="jiaz()">加载更多</button>
+	</div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+		<script type="text/javascript" src="js/angular-route.js" ></script>
+		<script type="text/javascript" src="js/angular-animate.js"></script>
+	</head>
+	<style>
+		body{
+			overflow: hidden;
+		}
+		.dong{
+			transition: all 5s linear;
+			position: absolute;
+			width: 100%; 
+		}
+		.dong.ng-leave{
+			 transition:transform 2s;
+		}
+		.dong.ng-leave.ng-leave-active{
+			 transform: translateY(-100%);
+		}
+		.dong.ng-enter{
+			transition: transform 2s;
+    		transform: translateY(100%);
+		}
+		.dong.ng-enter.ng-enter-active{
+			transform: translateY(0);
+		}
+	</style>
+	<body>
+		<ul ng-controller="dj">
+			<li ng-click="wx()" class="btn btn-info">微信</li>
+			<li ng-click="qq()" class="btn btn-info">QQ</li>
+			<li ng-click="wb()" class="btn btn-info">微博</li>
+			<li ng-click="yy()" class="btn btn-info">YY</li>
+		</ul>
+		<div ng-view ng-controller="ajx" class="dong">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="js/angular.js" ></script>
+	<script>
+		angular.module("app",["ng","ngRoute","ngAnimate"]).config(function($routeProvider){
+			$routeProvider.when("/wx",{
+				templateUrl:"weixin.html"
+			}).when("/qq",{
+				templateUrl:"QQ.html"
+			}).when("/wb",{
+				templateUrl:"weibo.html"
+			}).when("/yy",{
+				templateUrl:"YY.html"
+			}).otherwise({
+				redirectTo:"/wx"
+			})
+		}).controller("ajx",function($http,$scope){
+			$http.get("js/data.json").then(function(datas){
+				console.log(datas)
+				var lists=datas.data.list;
+				console.log(lists)
+				$scope.arr=[];
+				for( var i=0;i<5;i++){
+					var obj={};
+					obj.author=lists[i].author;
+					obj.date=lists[i].date;
+					obj.content=lists[i].content;
+					obj.title=lists[i].title;
+//					console.log(obj)
+					$scope.arr.push(obj);
+//					console.log($scope.arr)
+				}
+				var a=$scope.arr.length;
+				$scope.jiaz=function(){
+					for( var i=0;i<5;i++){
+						var obj={};
+						obj.author=lists[i+a].author;
+						obj.date=lists[i+a].date;
+						obj.content=lists[i+a].content;
+						obj.title=lists[i+a].title;
+						$scope.arr.push(obj);
+					}
+					a+=5;
+					if($scope.arr.length==lists.length){
+						$scope.mystyle={
+							"display":"none"
+						}
+					}
+				}
+			})
+		}).controller("dj",function($scope,$location){
+			$scope.wx=function(){
+				$location.path("/wx");
+			}
+			$scope.qq=function(){
+				$location.path("/qq");
+			}
+			$scope.wb=function(){
+				$location.path("/wb");
+			}
+			$scope.yy=function(){
+				$location.path("/yy");
+			}
+		})
+	</script>
+</html>
