@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+		<script type="text/javascript" src="js/angular-ui-router.js" ></script>
+		<script type="text/javascript" src="js/angular-animate.js" ></script>
+	</head>
+	<style>
+		/*body{
+			overflow: hidden;
+		}*/
+		.div1{
+			width: 100%;
+			height: 500px;
+			border: 1px solid red;
+			transition: all 3s linear;
+			position: absolute;
+		}
+		.div1.ng-leave{
+			left: 0;
+			opacity: 1;
+		}
+		.div1.ng-leave.ng-leave-active{
+			left: -100%;
+			opacity: 0;
+		}
+		.div1.ng-enter{
+			left: 100%;
+			opacity: 0;
+		}
+		.div1.ng-enter.ng-enter-active{
+			left: 0;
+			opacity: 1;
+		}
+	</style>
+	<body>
+		<ul>
+			<li class="btn btn-info" ui-sref="QQ">QQ</li>
+			<li class="btn btn-info" ui-sref="wx">微信</li>
+			<li class="btn btn-info" ui-sref="wb">微博</li>
+			<li class="btn btn-info" ui-sref="YY">YY</li>
+		</ul>
+		<div ui-view="view1" class="div1">
+			
+		</div>
+		<div ui-view="view2" class="div1">
+			
+		</div>
+	</body>
+	<script>
+		angular.module("app",["ng","ui.router","ngAnimate"]).config(function($stateProvider,$urlRouterProvider){
+			$stateProvider.state("QQ",{
+				url:"/QQ",
+				views:{
+					"view1":{
+						templateUrl:"QQ.html",
+						controller:"mcller"
+					}
+				}
+			}).state("wx",{
+				url:"/wx",
+				views:{
+					"view1":{
+						templateUrl:"weixin.html"
+					}
+				}
+			}).state("wb",{
+				url:"/wb",
+				views:{
+					"view2":{
+						templateUrl:"weibo.html"
+					}
+				}
+			}).state("YY",{
+				url:"/YY",
+				views:{
+					"view2":{
+						templateUrl:"YY.html"
+					}
+				}
+			});
+			$urlRouterProvider.otherwise("wx")
+		}).controller("mcller",function($scope){
+			$scope.name="asd"
+		})
+	</script>
+</html>

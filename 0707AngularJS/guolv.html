@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<div ng-controller="hh">
+				<p>{{num | guolvqi}}</p>
+				
+			</div>
+		</div>
+	</body>
+	<script>
+		angular.module("app",["ng"]).service("tostr",function(){
+			this.myfun=function(num){
+				return num.toString(16)
+			}
+		}).filter("guolvqi",["tostr",function(tostr){
+			return function(num){
+				return tostr.myfun(num);
+			}
+		}])
+//		.filter("guolvqi",function(){
+//			return function(valve){
+//				return "￥"+valve.toFixed(3)
+//			}
+//			return function(number){
+//				return "十六进制："+number.toString(16)
+//			}
+//		})
+		.controller("hh",function($scope){
+			$scope.num=454564;
+		})
+	</script>
+</html>
