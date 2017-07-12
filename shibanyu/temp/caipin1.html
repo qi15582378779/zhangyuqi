@@ -1,0 +1,42 @@
+	<div>
+			<header>
+				<div>
+					<span class="header-left"><span class="iconfont icon-shousuo"></span></span>
+					<input type="text" class="header-inp" placeholder="寻找菜品、店面" />
+					<span class="header-right"><span class="iconfont icon-shousuohou "></span></span>
+				</div>
+			</header>
+		    <nav>
+				<ul class="navtab">
+					<li ng-click="all()" class="navtab1">全部</li>
+					<li ng-click="tese()">特色菜</li>
+					<li ng-click="tuijian()">店长推荐</li>
+					<li ng-click="jingpin()">精品上市</li>
+				</ul>
+			</nav>
+			<div class="content" ng-repeat="i in arr">
+				<h2>{{i.id}}</h2>
+				<div class="fish">
+					<a href="#cpxq?mid={{i.id}}&mimag={{i.imag}}&mprice={{i.price}}&mVIP={{i.VIP}}&mtime={{i.time}}&mjifen={{i.jifen}}&mtedian={{i.tedian}}">
+						<img ng-src="img/{{i.imag}}.jpg" />
+					</a>
+					<div class="discripe">
+						<p><span>单价：{{i.price}}</span></p>
+						<p><span>VIP：{{i.VIP}}</span></p>
+						<p><span>制作时间：{{i.time}}</span></p>
+						<p><span>可获积分：{{i.jifen}}</span></p>
+						<p><span>特点：{{i.tedian}}</span></p>
+						<button>点菜</button>
+					</div>
+				</div>
+				<ul class="changecolor" >
+					<li class="ck"><i class="iconfont icon-dianzan"></i> <span>赞 <span class="liang">215</span></span></li>
+					<li><i class="iconfont icon-pinglun"></i> <span>评论 <span class="liang">15</span></span></li>
+					<li><i class="iconfont icon-zhuanfa"></i> <span>转发 </span></li>
+				</ul>
+			</div>
+			<div class="qiehuan">
+				<button ng-click="prev()" ng-hide="hid1">上一页</button>
+				<button ng-click="next()" ng-hide="hid2">下一页</button>
+			</div>
+		</div>

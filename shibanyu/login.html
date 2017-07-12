@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{
+			width: 100%;
+			background: #969696;
+			position: relative;
+			overflow: hidden;
+		}
+		.denglu{
+			width: 5rem;
+			height: 3rem;
+			position: absolute;
+			top: 4rem;
+			left: 10%;
+		}
+		.denglu>h3{
+			font-size: 0.4rem;
+			text-align: center;
+			color: white;
+		}
+		.dl_zhuce{
+			width: 5rem;
+			height: 2rem;
+			margin-top: 0.2rem;
+			background: #cdcdcd;
+			border-radius: 2%;
+		}
+		.dl_zhuce>p{
+			width: 4rem;
+			height: 0.5rem;
+			margin: 0 auto;
+		}
+		.lab{
+			display: block;
+			width: 1.2rem;
+			height: 0.5rem;
+			font-size: 0.3rem;
+			line-height: 0.5rem;
+			text-align: right;
+			float: left;
+		}
+		.iput{
+			display: block;
+			float: right;
+			width: 2.7rem;
+			height: 0.35rem;
+			margin-top: 0.08rem;
+			outline: none;
+			border: none;
+			font-size: 0.25rem;
+		}
+		.btn1{
+			display: block;
+			width: 2rem;
+			height: 0.3rem;
+			border: none;
+			float: left;
+			margin-top: 0.3rem;
+			margin-left: 0.2rem;
+			font-size: 0.2rem;
+			background: #fca73a;
+		}
+		.btn2{
+			display: block;
+			width: 2rem;
+			height: 0.3rem;
+			border: none;
+			float: right;
+			margin-top: 0.3rem;
+			margin-right: 0.2rem;
+			font-size: 0.2rem;
+			background: #a40801;
+		}
+	</style>
+	<body>
+		<div class="denglu">
+			<h3>会员登录</h3>
+			<div class="dl_zhuce">
+				<p><label class="lab">账号：</label><input type="text" class="iput" /></p>
+				<p><label class="lab">密码：</label><input type="password" class="iput" /></p>
+				<button class="btn1">登录</button>
+				<button class="btn2">申请VIP</button>
+			</div>
+			
+		</div>
+	</body>
+	<script>
+		 window.onload=function(){
+		 	document.documentElement.style.fontSize=document.documentElement.clientWidth/6.4+"px";
+		 	window.addEventListener("resize",function(){
+		 	    document.documentElement.style.fontSize=document.documentElement.clientWidth/6.4+"px";	
+		 	})
+		 }
+		 
+	</script>
+</html>

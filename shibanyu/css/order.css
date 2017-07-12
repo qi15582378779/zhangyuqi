@@ -1,0 +1,58 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.box{
+	width: 100%;
+	height: 15rem;
+	background: url(../img/dingwei.png) repeat;
+}
+.hear2{
+	width: 100%;
+	overflow: hidden;
+}
+.hear2>a{
+	display: block;
+	float: left;
+	width: 1.2rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border: 0.01rem solid grey;
+	border-radius: 5%;
+	margin-top: 0.25rem;
+	margin-left: 0.25rem;
+	text-decoration: none;
+	color: gray;
+	text-align: center;
+	font-size: 0.3rem;
+}
+.hear2>img{
+	margin-top: 0.25rem;
+	width: 4.5rem;
+}
+.content_con1{
+	width: 80%;
+	height: 5rem;
+	margin: 0 auto;
+}
+.form{
+	width: 75%;
+	height: 0.8rem;
+	background: gainsboro;
+	margin: 0 auto;
+	font-size: 0.35rem;
+	line-height: 0.8rem;
+	padding-left: 0.2rem;
+	margin-top: 0.3rem;
+}
+.form>input{
+	display: block;
+	float: right;
+	width: 2.5rem;
+	height: 0.5rem;
+	outline: none;
+	border: none;
+	margin-top: 0.15rem;
+	margin-right: 0.1rem;
+	font-size: 0.3rem;
+}
