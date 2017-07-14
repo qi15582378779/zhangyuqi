@@ -1,0 +1,75 @@
+<div ng-controller="cpxq">
+		<header>
+				<div>
+					<span class="header-left"><span class="iconfont icon-shousuo"></span></span>
+					<input type="text" class="header-inp" placeholder="寻找菜品、店面" />
+					<span class="header-right"><span class="iconfont icon-shousuohou "></span></span>
+				</div>
+			</header>
+		    <nav>
+				<ul class="navtab">
+					<li ng-click="all()" class="navtab1">全部</li>
+					<li ng-click="tese()">特色菜</li>
+					<li ng-click="tuijian()">店长推荐</li>
+					<li ng-click="jingpin()">精品上市</li>
+				</ul>
+			</nav>
+		<div class="content1">
+			<div class="content2">
+				<div class="content_div">
+					<button class="btnn"><a href="#cp">返回</a></button>
+					<h3>{{aid}}</h3>
+				</div>
+				<div class="fish1">
+					<img ng-src="img/{{aimag}}.jpg" />
+					<div class="discripe1">
+						<p><span>单价：{{aprice}}</span><b>VIP：{{aVIP}}</b></p>
+						<p><span>制作时间：{{atime}}</span>&nbsp;&nbsp;&nbsp;<span>可获积分：{{ajifen}}</span></p>
+						<p><span>特点：{{atedian}}</span></p>
+						<button>点菜</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="pingj">
+				<span>客户评价</span>
+				<p>我要评价</p>
+			</div>
+			<div class="liuyan">
+				<ul class="ul">
+					<li class="ll1">
+						<img src="img/liuyan.png"/>
+						<span class="sp1">大魔王</span>
+						<span class="sp2">2017/7/11/ 下午1:54:00</span>
+					</li>
+					<li class="ll">这个菜超级好吃，我每次都点~~</li>
+					<li class="ll1">
+						<img src="img/liuyan.png"/>
+						<span class="sp1">大魔王</span>
+						<span class="sp2">2017/7/11/ 下午1:54:00</span>
+					</li>
+					<li class="ll">这个菜超级好吃，我每次都点~~</li>
+					<li class="ll1">
+						<img src="img/liuyan.png"/>
+						<span class="sp1">大魔王</span>
+						<span class="sp2">2017/7/11/ 下午1:54:00</span>
+					</li>
+					<li class="ll">这个菜超级好吃，我每次都点~~</li>
+					<li class="ll1">
+						<img src="img/liuyan.png"/>
+						<span class="sp1">大魔王</span>
+						<span class="sp2">2017/7/11/ 下午1:54:00</span>
+					</li>
+					<li class="ll">这个菜超级好吃，我每次都点~~</li>
+				</ul>	
+				<div class="pingj">
+					<span>我要评价</span>
+					<p>看看别人的评论</p>
+				</div>
+				<input type="text" id="text" placeholder="昵称" />
+				<textarea id="tar" placeholder="请输入您的评价"></textarea>
+				<input type="button" id="bnn" onclick="tj()" value="提交">
+			</div>
+		</div>
+</div>

@@ -1,0 +1,62 @@
+	<div>
+		<header class="hedar">
+			<div class="hedar_con">
+				<img src="img/vip1.jpg" />
+				<div class="hedar_cone">
+					<p class="b22">未登录</p>
+					<p>我的vip会员卡，我还不是vip</p>
+					<p>申请成为vip</p>
+				</div>
+			</div>
+		</header>
+		<div class="con">
+			<h5>订单</h5>
+			<p>预定中<span>0></span></p>
+			<p>已成交<span>0></span></p>
+			<p>未成交<span>0></span></p>
+			<h5>会员积分</h5>
+			<p>现有积分：898<span><a href="#integral">积分记录></a></span></p>
+			<p>积分活动<span>></span></p>
+			<p>积分规则<span>></span></p>
+			<h5>账户设置</h5>
+			<p><b>askjdhas</b><span><a href="#pass">修改></a></span></p>
+			<p>修改密码<span>0></span></p>
+		</div>
+	</div>	
+	<script>
+		var denglu=document.getElementsByClassName('denglu')[0];
+		var zhuce=document.getElementsByClassName('zhuce')[0];
+		var zhanghao1=document.getElementsByClassName('zhanghao1')[0];
+		var mima1=document.getElementsByClassName('mima1')[0];
+		var hid=document.getElementById("hid1");
+		var b=document.getElementsByClassName("b22")[0];
+		zhuce.onclick=function(){
+			var val=zhanghao1.value;
+			var pass=mima1.value;
+				for(var i=0;i<localStorage.length;i++){
+					if(val==localStorage.key(i)){
+						alert("该账号已存在！");
+						pass=localStorage.getItem(localStorage.key(i));
+					}
+				}
+				localStorage.setItem(val,pass);
+				alert("申请成功")
+		}
+		denglu.onclick=function(){
+			var val=zhanghao1.value;
+			var pass=mima1.value;
+			console.log(val)
+			for(var i=0;i<localStorage.length;i++){
+				if(val==localStorage.key(i) && pass==localStorage.getItem(localStorage.key(i))){
+					alert("登录成功");
+					b.innerHTML=val+"<p>账户余额：0元</p>";
+					hid.value=pass;
+					console.log(hid.value)
+					$('.vip').css({"display":"none"})
+				}if(val==localStorage.key(i) && pass!=localStorage.getItem(localStorage.key(i))){
+					alert("密码错误")
+				}
+			}
+		}
+		
+	</script>
