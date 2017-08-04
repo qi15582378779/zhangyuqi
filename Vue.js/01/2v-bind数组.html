@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+	<style>
+		.textColor{
+			color: red
+		}
+		.font{
+			font-size: 30px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" v-bind:class="[classA,classB]">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</div>
+
+	<!-- 
+		关于行内样式
+	 -->
+	 <div id="box2" v-bind:style="{color:'red'}">
+	 	sadas
+	 </div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			classA:"textColor",
+			classB:"font",
+			isB:true
+		}
+	})
+	var vm2=new Vue({
+		el:"#box2",
+		data:{
+			
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<!-- v-else 元素必须跟在  v-if后面，否则不能识别 -->
+	<div id="box">
+		<h2 v-if="h2">hello</h2>
+		<h3 v-else>我是一只鸟</h3>
+
+		<h2 v-if="age>20">hello</h2>
+		<h3 v-else-if="age==18">wellcome</h3>
+		<h3 v-else>飞呀</h3>
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			h2:false,
+			age:20
+		}
+	})
+</script>
+</html>

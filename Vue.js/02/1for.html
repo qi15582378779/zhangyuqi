@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-for</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<!-- v-for 循环 -->
+	<div id="box" style="border: 1px solid red">
+		<ul style="list-style: none;">
+			<li v-for="(i,j) in person">{{j+"---"+i}}</li>
+		</ul>
+		<hr />
+		<b>JSON循环   循环参数里面  第一位是value，第二位是key，最后一位是索引</b>
+		<h5 v-for="(i,key,index) in obj">{{i+"-----"+key+"-----"+index}}</h5>
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			person:["小明","大明","老明","光头佬","死肥仔"],
+			obj:{
+				name:"Tom",
+				age:34,
+				sex:"男",
+				birth:"2017-08-04"
+			}
+		}
+	})
+</script>
+</html>

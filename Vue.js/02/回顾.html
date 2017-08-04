@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-bind</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<style>
+		.color{
+			color: red;
+		}
+		.font{
+			background-color: grey;
+			border: 1px solid red;
+		}
+		.size{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul" v-bind:class="{'font':isno}">
+		<li v-bind:class="{'size':isno}">1</li>
+		<li :style="{color:'red'}">2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#ul",
+		data:{
+			isno:true
+		}
+	})
+</script>
+</html>

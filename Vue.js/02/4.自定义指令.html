@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<span v-haha>{{msg}}</span>
+		<span v-a-haha>加油啊 ，奇菲尔；</span>
+		<h5 v-a-blue>费巴菲安保</h5>
+	</div>
+</body>
+<script type="text/javascript">
+//    自定义指令
+	Vue.directive("haha",function(el){
+		//el   谁使用我的指令
+		el.style.color="red";
+		el.style.fontSize = "30px";
+	})
+	Vue.directive("a-haha",function(el){
+		el.style.color="blue"
+	})
+	Vue.directive("aBlue",function(el){
+		// v-a-blue
+		el.style.color="blue"
+	})
+
+
+
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			msg:"飞机"
+		}
+	})
+</script>
+</html>

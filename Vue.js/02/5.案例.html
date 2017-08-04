@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="msg" />
+		<button v-on:click="print">点击</button>
+		<button v-on:click="clear">清空</button>
+		<!-- <div v-if="aa">
+			1231321
+		</div> -->
+		<hr/>
+		<button v-on:click="tab">切换</button>
+		<button v-on:click="show">显示</button>
+		<button v-on:click="hide">隐藏</button>
+		<div style="width: 100px;height: 100px;background: red;" v-if="aa">
+		</div>
+		<div v-on:mouseover="over">
+			<h3>鼠标经过的时候</h3>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			msg:"数据库好几款",
+			aa:true
+		},
+		methods:{
+			print:function(){
+				alert(this.msg)
+				if(this.aa==true){
+					this.aa=false
+				}else {
+					this.aa=true
+				}
+			},
+			clear:function(){
+				this.msg=""
+			},
+			show:function(){
+				this.aa=true
+			},
+			hide:function(){
+				this.aa=false
+			},
+			tab:function(){
+				if(this.aa==true){
+					this.aa=false
+				}else {
+					this.aa=true
+				}
+				this.aa=this.aa==true?false:true;
+				this.aa=!this.aa;
+			},
+			over:function(){
+				alert(1111)
+			}
+		}
+	})
+</script>
+</html>

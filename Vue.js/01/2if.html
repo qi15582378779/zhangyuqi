@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<!-- v-if  显示和隐藏/生成和删除   通过控制true false -->
+
+	<div id="box">
+		<h3 v-if="apple">这是我的if指令生成和删除的元素</h3>
+		<h3 v-if="age>20">这是v-if的逻辑</h3>
+		<h3 v-if="name.indexOf('a')>=0">这是v-if的逻辑</h3>
+		<input type="checkbox" v-model="check"/>
+		<div style="width: 100px;height:100px;background: red" v-if="check"></div>
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			apple:false,
+			age:22,
+			name:"agsjhg",
+			check:""
+		}
+	})
+</script>
+</html>

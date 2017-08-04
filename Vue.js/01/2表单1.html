@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="radio" name="" value="路口监控了" v-model="picked">
+		<!--  v-model 双向绑定 绑定的是值-->
+		<p>你选择的是：{{picked}}</p>
+		<input type="checkbox" name="" v-model="toggle">
+		<!--checkbox选中时值是true  false-->
+		<p>你选择的是：{{toggle}}</p>
+		<select name="" v-model="selected">
+			<!--  v-model 双向绑定 绑定的是标签的值-->
+			<option value="11">小明</option>
+			<option value="22">大明</option>
+			<option value="33">老明</option>
+		</select>
+		<p>你选的是 ：{{selected}}</p>
+	</div>
+</body>
+<script>
+	new Vue({
+		el:"#box",
+		data:{
+			picked:[],
+			toggle:"好任意",
+			selected:"请选择"
+		}
+	})
+</script>
+</html>

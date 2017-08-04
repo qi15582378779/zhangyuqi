@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" name="" value="点击1" v-on:click="hello" />
+		<input type="button" name="" value="点击2" v-on:click="say" />
+	</div>
+</body>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			msg:"这是我的数据"
+		},
+		methods:{
+			hello:function(){
+				alert(111)
+			},
+			say:function(){
+				console.log(this)
+			}
+		}
+	})
+</script>
+</html>

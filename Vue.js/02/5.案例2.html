@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		#box{
+			width: 600px;
+			margin: 0 auto;
+			text-align: center;
+			border: 1px solid red;
+			border-radius: 5px;
+		}
+		ul{
+			list-style: none;
+			width: 600px;
+			height: 50px;
+			border-radius: 5px;
+			background: yellow;
+		}
+		a{
+			text-decoration: none;
+			display: block;
+			float: left;
+			width: 150px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 5px;
+			color: grey;
+			cursor: pointer;
+		}
+		.show{
+			background: aqua;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<nav>
+			<ul>
+				<a v-for="(i,index) in items" :class="{'show':i.active}" v-on:click="mark(i,index)">{{i.name}}</a>
+				<!-- <li><a href="#">CSS</a></li>
+				<li><a href="#">javascript</a></li>
+				<li><a href="#">vue.js</a></li> -->
+			</ul>
+		</nav>
+		<p>你选择的是：<b>{{chose}}</b></p>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			chose:"HTML",
+			items:[
+				{name:"HTML",active:true},
+				{name:"CSS",active:false},
+				{name:"javascript",active:false},
+				{name:"vue.js",active:false}
+			]
+		},
+		methods:{
+			mark:function(item,index){
+				this.chose=item.name;
+				for(var i=0;i<this.items.length;i++){
+					this.items[i].active=false    //清空样式
+				}
+				this.items[index].active=true
+			}
+		}
+	})
+</script>
+</html>

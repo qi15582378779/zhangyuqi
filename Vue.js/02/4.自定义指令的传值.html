@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<span v-red="{'color':'blue','background':'red'}">{{msg}}</span>
+	</div>
+</body>
+<script type="text/javascript">
+	Vue.directive("red",function(el,a){
+		el.style.color=a.value.color;
+		el.style.background = a.value.background;
+		console.log(a)
+	})
+
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			msg:"哈坎精神可嘉"
+		}
+	})
+</script>
+</html>

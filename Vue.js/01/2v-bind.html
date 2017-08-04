@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+	<style>
+		.ul{
+			border: 1px solid blue;
+		}
+		.text{
+			color: red
+		}
+		.font{
+			font-size: 30px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<!-- v-bind  主要是属性绑定的 -->
+	<div id="box">
+		<input type="text" name="" value="hello" />
+		<input type="text" name="" v-bind:value="text" />
+		<ul class="ul" v-bind:class="{'text':isColor,'font':isColor}">
+		<!-- {要绑定的class的名字:用布尔值来控制的} -->
+			<li>{{text}}</li>
+			<li>hhh</li>
+			<li>20</li>
+		</ul>
+	</div>
+	<div id="box2">
+		<ul class="ul" v-bind:class="{text:true,font:false}">
+			<li>{{name}}</li>
+			<li>88</li>
+			<li>66</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			text:"wellcome",
+			isColor:true
+		}
+	});
+	var vm2=new Vue({
+		el:"#box2",
+		data:{
+			name:"一只鸟",
+			classObject:{// 这个就是我要绑定的class类名
+				text:true,
+				font:true
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<select v-model="select">
+			<option value="11">美女</option>
+			<option value="22">帅锅</option>
+			<option value="33">猩猩</option>
+			<option v-for="(i,index) in options" v-bind:value="i.value">
+				{{i.name+"--"+index}}
+			</option>
+		</select>
+		<br>
+		<span>{{select}}</span>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			select:"",
+			options:[
+				{name:"西瓜",value:"换手机号"},
+				{name:"香蕉",value:"个傻瓜"},
+				{name:"苹果",value:"离开"}
+			]
+		}
+	})
+</script>
+</html>

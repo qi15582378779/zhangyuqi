@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<fieldset>
+			<legend>注册账号信息：</legend>
+			<div>
+				<label>姓名：</label>
+				<input type="text" name="" v-model="newUser.name">
+			</div>
+			<div>
+				<label>年龄：</label>
+				<input type="text" name="" v-model="newUser.age">
+			</div>
+			<div>
+				<label>性别：</label>
+				<select v-model="newUser.sex">
+					<option value="">请选择</option>
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</div>
+			<br />
+			<div>
+				<button v-on:click="addUser">注册</button>
+			</div>
+		</fieldset>
+		<table>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(i,index) in people">
+					<td>{{i.name}}</td>
+					<td>{{i.age}}</td>
+					<td>{{i.sex}}</td>
+					<td><button v-on:click="deletePerson(i,index)">删除</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	new Vue({
+		el:"#box",
+		data:{
+			newUser:{
+				name:"",
+				age: "",
+				sex:""
+			},
+			people:[
+				{
+					name:"Tom",
+					age:25,
+					sex:"男"
+				},
+				{
+					name:"小明",
+					age:50,
+					sex:"男"
+				},
+				{
+					name:"小红",
+					age:25,
+					sex:"女"
+				}
+			]
+		},
+		methods:{
+			deletePerson:function(i,index){
+				alert(index)
+				this.people.splice(index,1);
+			},
+			addUser:function(){
+				//  收集前端输入的数据
+				//  把收集到的数据进行一个添加，添加到people这个数组中，尾部添加push
+				console.log(this.newUser)
+				this.people.push(this.newUser);
+				//  如果要添加新人  把newUser里面记录的信息清空
+				this.newUser={};
+			}
+		}
+	})
+</script>
+</html>
