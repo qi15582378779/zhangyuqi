@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>修改密码</h1>
+		<h5>1.获取验证码</h5>
+		<h5>2.登录</h5>
+		<h5>3.获取登录信息</h5>
+		<h5>我的登录信息是：</h5>
+		<p id="userInfo"></p>
+		<button id="btn">获取登录信息</button>
+		<form action="/VueHandler/AdminHandler?action=updatepass" method="post">
+			<p>旧密码：<input type="tetx" name="userPwd" /></p>
+			<p>新密码：<input type="tetx" name="newPwd" /></p>
+			<input type="submit" value="修改密码" />
+		</form>
+		
+	</body>
+	<script>
+		document.getElementById("btn").onclick=function(req,res){
+			var xmlhttp=new XMLHttpRequest();
+			xmlhttp.open("post","/VueHandler/AdminHandler?action=returnuserinfo",true);
+			xmlhttp.send();
+			xmlhttp.onreadystatechange=function(){
+				if(xmlhttp.readyState==4 && xmlhttp.status==200){
+					document.getElementById("userInfo").innerHTML=xmlhttp.responseText;
+				}
+			}
+		}
+	</script>
+</html>
