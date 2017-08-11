@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="vue.js"></script>
+	<!-- 官方不支持  外部写入模板 -->
+	<script type="text/javascript" id="app">
+		<h3 @click="change()">{{msg}}</h3>
+	</script>
+</head>
+<body>
+	<div id="box">
+		<my-qi></my-qi>
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-qi":{
+				template:"#app",
+				data(){
+					return{
+						msg:'我是个人'
+					}
+				},
+				methods:{
+					change(){
+						this.msg="一个好人"
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<my-a></my-a>
+		<my-b></my-b>
+		<my-c></my-c>
+		<my-d></my-d>
+	</div>
+</body>
+<template id="a">
+	<div>
+		<h1>{{msga}}</h1>
+		<button @click="dianA">发送到C</button>
+		<hr>
+	</div>
+</template>
+
+<template id="b">
+	<div>
+		<h1>{{msgb}}</h1>
+		<h3>{{msgbb}}</h3>
+		<button @click="dianB">发送到C</button>
+		<hr>
+	</div>
+</template>
+
+<template id="c">
+	<div>
+		<h1>{{msga1}}</h1>
+		<h1>{{msgb1}}</h1>
+		<button @click="dianC">发送到D</button>
+		<hr>
+	</div>
+</template>
+
+<template id="d">
+	<div>
+		<h1>{{msgd}}</h1>
+		<button @click="dianD">发送到B</button>
+		<hr>
+	</div>
+</template>
+<script>
+	var Event=new Vue();
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-a":{
+				template:"#a",
+				data(){
+					return{
+						msga:"我是A的数据"
+					}
+				},
+				methods:{
+					dianA(){
+						alert("向C发送A的数据")
+						Event.$emit("send1",this.msga)
+					}
+				}
+			},
+
+			"my-b":{
+				template:"#b",
+				data(){
+					return{
+						msgb:"我是B的数据",
+						msgbb:""
+					}
+				},
+				methods:{
+					dianB(){
+						alert("向C发送B的数据")
+						Event.$emit("send2",this.msgb)
+					}
+				},
+				mounted(){
+					var _this=this;
+					Event.$on("send4",function(shuju){
+						_this.msgbb=shuju
+					})
+				}
+			},
+
+			"my-c":{
+				template:"#c",
+				data(){
+					return{
+						msga1:"",
+						msgb1:""
+					}
+				},
+				mounted(){
+					var _this=this;
+					Event.$on('send1',function(shuju) {
+						_this.msga1=shuju+"被C处理过了，";
+					});
+					Event.$on('send2',function(shuju) {
+						_this.msgb1=shuju+"被C处理过了";
+					})
+				},
+				methods:{
+					dianC(){
+						alert("向D发送C的数据")
+						Event.$emit("send3",this.msga1);
+						Event.$emit("send3",this.msgb1);
+					}
+				}
+			},
+
+			"my-d":{
+				template:"#d",
+				data(){
+					return{
+						msgd:""
+					}
+				},
+				mounted(){
+					var _this=this;
+					Event.$on("send3",function(shuju){
+						_this.msgd+=shuju
+					})
+				},
+				methods:{
+					dianD(){
+						alert("向B发送D数据")
+						Event.$emit("send4",this.msgd)
+					}
+				}
+			},
+		}
+	})
+</script>
+</html>

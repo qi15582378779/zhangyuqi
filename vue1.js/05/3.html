@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<my-com>
+			<h1 slot="name">你去死</h1>
+			<p slot="nas">我要飞得更高</p>
+		</my-com>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<h3>hello</h3>
+		<slot name="name"></slot>
+		<p>你要上天</p>
+		<h2>wellcom</h2>
+		<slot name="nas"></slot>
+	</div>
+</template>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-com":{
+				template:"#app"
+			}
+		}
+	})
+</script>
+</html>

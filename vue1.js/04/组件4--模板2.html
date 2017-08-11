@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<my-yu></my-yu>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<h1 @click="change()">{{msg}}</h1>
+		<ul>
+			<li v-for="i in arr">{{i}}</li>
+		</ul>
+	</div>
+</template>
+<script>
+	new Vue({
+		el:"#box",
+		components:{
+			"my-yu":{
+				template:"#app",
+				data(){
+					return{
+						msg:"瓦萨黑科技",
+						arr:["苹果","香蕉","栗子","樱桃"]
+					}
+				},
+				methods:{
+					change(){
+						this.msg="11111"
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>

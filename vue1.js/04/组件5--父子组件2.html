@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<aa></aa>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<h2>我当前的数据是{{msg}}</h2>
+		<aa-opp v-bind:m="msg1"></aa-opp>
+		<!-- 把 m  当成自身的属性 -->
+	</div>
+</template>
+<script>
+	new Vue({
+		el:"#box",
+		components:{
+			"aa":{
+				data(){
+					return{
+						msg:"我是父组件",
+						msg1:"我是数据111"
+					}
+				},
+				template:"#app",
+				components:{
+					"aa-opp":{
+						props:['m'],       //  m 就是我从父级取到的数据
+						template:"<div><h3>我是子组件</h3>=====》我从父组件取到的数据:<input type='text' v-model='m' /></div>"
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<button v-on:click="addU">-</button><span>{{count}}</span><button v-on:click="add">+</button><span>{{content}}</span>
+		<span>应付的费用为：{{money}}</span>
+		<!-- <span>物品重量：{{weight}}</span> -->
+	</div>
+</body>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		data:{
+			count:1
+		},
+		computed:{
+			money:function(){
+				return this.count*500
+			},
+			content:function(){
+				if(this.count<5){
+					return "有货"
+				}else {
+					return "无货"
+				}
+			}
+		},
+		methods:{
+			add:function(){
+				this.count=this.count+1;
+				if (this.count>5) {
+					alert("没有更多了")
+					this.count=5
+				}
+			},
+			addU:function(){
+				this.count=this.count-1;
+				if (this.count==0) {
+					alert("最少一件")
+					this.count=1
+				}
+			}
+		}
+	})
+</script>
+</html>

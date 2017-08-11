@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>生命周期/钩子函数</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<!-- 钩子函数   事件监听   在某一个阶段  要使用什么函数  -->
+	<div id="box">
+		{{msg}}
+	</div>
+</body>
+<script>
+	var vm= new Vue({
+		el:"#box",
+		data:{
+			msg:"hello"
+		},
+		methods:{
+
+		},
+		beforeCreate:function(){
+			console.log("实例正要创建")
+			console.log('el:'+this.$el);    //$el   查看实例挂在了没有
+			console.log('data:'+this.$data);  //数据有没有
+		},
+		created:function(){
+			console.log("实例创建完毕");
+			console.log("%c%s","color:red",'el:'+this.$el);    //undefined
+			console.log("%c%s","color:red",'data:'+this.$data);  //true
+		},
+		beforeMount:function(){
+			console.log("挂载之前");
+			console.log("%c%s","color:green",'el:'+this.$el);      //true
+			console.log("%c%s","color:green",'data:'+this.$data);   //true
+		},
+		mounted:function(){;
+			console.log("挂载结束")
+			console.log("%c%s","color:blue",'el:'+this.$el);          //true
+			console.log("%c%s","color:blue",'data:'+this.$data);       //true
+		},
+
+
+
+
+		beforeUpdate:function(){
+			alert("更新之前");
+			console.log("%c%s","color:blue",'el:'+this.$el);     //true
+			console.log(this.$el)
+			console.log("%c%s","color:blue",'data:'+this.$data);    //true
+		},
+		updated:function(){
+			alert("更新完毕")
+			console.log("%c%s","color:aqua",'el:'+this.$el);           //true
+			console.log(this.$el);
+			console.log("%c%s","color:aqua",'data:'+this.$data);        //true
+
+		},
+		beforeDestroy:function(){
+			console.log('销毁之前');
+			console.log(this.$el);         //true
+			console.log(this.$data)         //true
+		},
+		destroyed:function(){
+			console.log('销毁完成');
+			console.log(this.$el);
+			console.log(this.$data)
+		}
+	})
+</script>
+</html>

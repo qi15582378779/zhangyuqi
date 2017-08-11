@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>路由</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+</head>
+<body>
+	<!-- const  定义常量的 定义之后 ，不能再重新定义
+		 let    定义变量    只在当前的代码块中有效
+		 模板语法  ``
+
+
+		 路由：vue-router
+		 1.生成路由实例
+		 2.配置   路径
+		 3.vue路由   就是给路由使用的，   把路由挂载到vue的实例中
+		 4.实例的路由   要有放置的位置
+
+		 二级路由
+	 -->
+	<div id="box">
+		<div>
+			<h1>我是路由的主体</h1>
+		    <!-- <a href="#/home">Home</a>
+		    <a href="#/news">News</a> -->
+		    <router-link to="/home">主页</router-link>
+		    <router-link to="/news">新闻</router-link>
+		    <router-link to="/hello">重定向</router-link>
+		</div>
+		<div>
+			<router-view>
+				<!-- 这里就是放置路由的地方 -->
+			</router-view>
+		</div>
+	</div>
+</body>
+<script>
+	//2.配置   组件(页面)
+	const Home={
+		template:`
+		<div style="width:300px;height:300px;background:aqua;">
+			<h3>我是主页的内容</h3>
+		</div>`
+	};
+	const News={
+		template:`
+		<div style="width:300px;height:300px;background:red;">
+			<h3>我是新闻页的内容</h3>
+		</div>`
+	};
+	//配置路径   routes这个是固定的不能随意更改
+	// const routes=[
+	// 	{path:"/home",component:Home},
+	// 	{path:"/news",component:News}
+	// ];
+
+	//生成路由的实例
+	const router=new VueRouter({
+		routes:[
+			{path:"/home",component:Home},
+			{path:"/news",component:News},
+			{path:"*",component:News},     //默认显示哪一个
+			{path:"/hello",redirect:"/home"}   //重定向
+		]
+	});
+	//挂载路由
+	var vm=new Vue({
+		el:"#box",
+		router
+	})
+</script>
+</html>

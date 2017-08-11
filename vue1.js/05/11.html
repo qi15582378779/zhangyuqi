@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="vue.js"></script>
+	<style>
+		th,td{
+			width: 210px;
+			height: 30px;
+			text-align: center;
+		}
+		.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    		line-height: 32px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" class="container">
+		<my-com></my-com>
+		<my-yu></my-yu>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<fieldset class="form-inline">
+			<legend>注册人员信息</legend>
+			<p class="form-group has-success has-feedback">
+			    <label>姓名：</label><input type="text" v-model="newUser.name" />
+			</p>
+			<p class="form-group has-success has-feedback">
+			    <label>年龄：</label><input type="text" v-model="newUser.age" />
+			</p>
+			<p class="form-group has-success has-feedback">
+			    <label>性别：</label>
+			    <select v-model="newUser.sex">
+			    	<option value="请选择">请选择</option>
+			    	<option value="男">男</option>
+			    	<option value="女">女</option>
+			    </select>
+			</p>
+		</fieldset>
+		<br>
+	</div>
+</template>
+
+<template id="demo">
+	<table border="1" cellpadding="0" cellspacing="0" class="table table-bordered table-hover table-condensed">
+				<thead>
+					<td><button class="btn btn-info" v-on:click="add">添加</button></td>
+					<tr class="active">
+						<th style="width:30px;">选中</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>性别</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(i,index) in list">
+						<td><input type="checkbox" v-model="i.check"></td>
+						<td>{{i.name}}</td>
+						<td>{{i.age}}</td>
+						<td>{{i.sex}}</td>
+						<td>
+							<button @click="del(i,index)" class="btn btn-danger">删除</button>
+						</td>
+					</tr>
+				</tbody>
+		</table>
+</template>
+<script>
+	var Event=new Vue();
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-com":{
+				template:"#app",
+				data(){
+					return{
+						newUser:{
+							name:"",
+							age:"",
+							sex:"",
+							check:false
+						}
+					}
+				},
+				updated(){
+					if (this.newUser.name&&this.newUser.age&&this.newUser.sex) {
+						Event.$emit("send",this.newUser)
+					}
+				},
+				mounted(){
+					alert(222)
+					Event.$on("post",function(shuju){
+						alert(11111)
+						this.newUser=shuju
+					})
+				}
+			},
+
+			"my-yu":{
+				template:"#demo",
+				data(){
+					return{
+						obj:{},
+						list:[
+							{name:"Tom",age:30,sex:"男",check:false}
+						]
+					}
+				},
+				mounted(){
+					Event.$on("send",function(shuju){
+						alert("接受到了数据")
+						console.log(shuju)
+						this.obj=shuju
+					}.bind(this))
+				},
+				updated(){
+					if(this.list){
+						alert("我发生了改变")
+						this.obj={}
+					}
+				},
+				methods:{
+					del(i,index){
+						if(this.list[index].check==true){
+							this.list.splice(index,1)
+						}else {
+							alert("请选择要删除的")
+						}
+					},
+					add(){
+						this.list.push(this.obj)
+						this.obj={}
+						console.log(this.obj)
+						Event.$emit("psot",this.obj)
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>单一事件中心管理组件通信</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<!-- 一个实例里面可以存在多个组件(兄弟级)  通信 var Event=new Vue()  自定义事件   Event.$emit("名字",数据)
+		mounted(){
+			Event.$on("名字",function(a){
+				a    接收到的数据
+			})
+		}
+	 -->
+	<div id="box">
+		<my-com></my-com>
+		<my-dd></my-dd>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<span>{{msga}}</span>
+		<button @click="dian">点击</button>
+	</div>
+</template>
+
+<template id="add">
+	<div>
+		<h1>{{msg1}}</h1>
+		<h1>{{msg2}}</h1>
+	</div>
+</template>
+
+
+<script>
+	var Event=new Vue();
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-com":{
+				template:"#app",
+				data(){
+					return{
+						msga:"我是组件A的信息"
+					}
+				},
+				methods:{
+					dian(){
+						alert("这是A组件里面的方法")
+						Event.$emit("send",this.msga)
+						console.log('发送成功')
+					}
+				}
+			},
+
+
+			"my-dd":{
+				template:"#add",
+				data(){
+					return{
+						msg1:"hello",
+						msg2:""
+					}
+				},
+				mounted(){
+					// var _this=this;
+					Event.$on("send",function(shuju){
+						alert("我已经接收到了数据")
+						this.msg2=shuju
+					}.bind(this));      //.bind(this)  这个就是声明this这个关键词的
+				}
+			}
+		}
+	})
+</script>
+</html>

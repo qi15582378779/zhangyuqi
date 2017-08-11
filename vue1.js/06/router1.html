@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+</head>
+<body>
+	<div id="box">
+		<router-link to="/home">首页</router-link>
+		<router-link to="/user">用户</router-link>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+</body>
+<script>
+	const Home={
+		template:`<div style="background:#6f9;">
+			<h1>这还是首页</h1>
+		</div>`
+	};
+	const User={
+		template:`<div style="background:#0cf;">
+			<h1>用户界面</h1>
+			<ul>
+				<li><router-link to="/user/one/22">杀手一号</router-link></li>
+				<li><router-link to="/user/two/30">杀手二号</router-link></li>
+				<li><router-link to="/user/three/14">杀手三号</router-link></li>
+				<li><router-link to="/user/four/50">杀手四号</router-link></li>
+			</ul>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>`
+	};
+	const userKiller={
+		template:`<div>
+			<h3>我的用户信息是{{$route.params}}</h3>
+		</div>`
+	}
+	const routes=[
+		{path:"/home",component:Home},
+		{path:"/user",component:User,children:[
+			{path:":name/:age",component:userKiller}
+		]}
+	];
+	var router=new VueRouter({
+		routes
+	});
+	var vm=new Vue({
+		el:"#box",
+		router
+	})
+</script>
+</html>

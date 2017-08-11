@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>全局的作用</title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<my-com></my-com>
+	</div>
+	<div id="box1">
+		<my-com></my-com>
+	</div>
+</body>
+<script>
+ 	Vue.component("my-com",{
+ 		template:"<h3 @click='add()'>加油啊，{{msg}}</h3>",
+ 		data(){
+ 			return{
+ 				msg:"骚年"
+ 			}
+ 		},
+ 		methods:{
+ 			add(){
+ 				this.msg="你可以"
+ 			}
+ 		}
+ 	})
+	var vm=new Vue({
+		data:{}
+	}).$mount("#box")
+	var vm=new Vue({
+		data:{}
+	}).$mount("#box1")
+</script>
+</html>

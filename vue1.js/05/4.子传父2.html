@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<my-com></my-com>
+	</div>
+</body>
+
+<template id="father">
+	<div>
+		<h1>{{msg}}</h1>
+		<div style="width: 300px;height: 300px;background: aqua;" v-if="isShow"></div>
+		<my-zi @child="get"></my-zi>
+	</div>
+</template>
+
+<template id="app">
+	<div>
+		<h3>{{isB}}</h3>
+		<button @click="dianji">切换</button>
+	</div>
+</template>
+<script>
+	var vm=new Vue({
+		el:"#box",
+		components:{
+			"my-com":{
+				template:"#father",
+				data(){
+					return{
+						msg:"我是父组件",
+						isShow:true
+					}
+				},
+				methods:{
+					get(shuju){
+						this.isShow=shuju
+					}
+				},
+				components:{
+					"my-zi":{
+						template:"#app",
+						data(){
+							return{
+								isB:true
+							}
+						},
+						methods:{
+							dianji(){
+								this.isB=!this.isB,
+								this.$emit("child",this.isB)
+							}
+						}
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>

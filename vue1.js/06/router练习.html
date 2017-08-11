@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			background: aqua;
+			border: 1px solid black;
+		}
+		.router-link-active{
+			font-size: 20px;
+			color: red;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul style="width: 95%;height: 50px;margin: 0 auto;">
+			<li><router-link to="/home">首页</router-link></li>
+			<li><router-link to="/news">新闻</router-link></li>
+			<li><router-link to="/my">我的</router-link></li>
+		</ul>
+		<div style="width: 95%;height: 500px;border: 1px solid grey;margin: 0 auto;">
+			<router-view></router-view>
+		</div>
+	</div>
+</body>
+<script>
+	const Home={
+		template:`<div>
+			<h1>这是首页</h1>
+			<img src="timg.jpg" alt="">
+		</div>`
+	};
+	const News={
+		template:`<div>
+			<h2>这是新闻页</h2>
+			<ul>
+				<li><router-link to="/news/国内新闻">国内新闻</router-link></li>
+				<li><router-link to="/news/国外新闻">国外新闻</router-link></li>
+				<li><router-link to="/news/社会新闻">社会新闻</router-link></li>
+			</ul>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>`
+	};
+	const My={
+		template:`<div>
+			<ul>
+				<li>name:张三</li>
+				<li>age:50</li>
+				<li>sex:男</li>
+			</ul>
+		</div>`
+	};
+	const Newscon={
+		template:`<div>
+			<h3 style="width:100%;margin-top:70px;">{{$route.params.content}}</h3>
+			<h4 style="color:red;">按揭中的房子因地震成了废墟，房贷还要继续还吗？</h4>
+			<h4 style="color:red;">37℃高温天 脐带未断的女婴被打包成快递</h4>
+		</div>`
+	}
+	const routes=[
+		{path:"/home",component:Home},
+		{path:"/news",component:News,children:[
+			{path:":content",component:Newscon}
+		]},
+		{path:"/my",component:My},
+		{path:"*",component:Home}
+	];
+	var router=new VueRouter({
+		routes
+	});
+	var vm=new Vue({
+		el:"#box",
+		router,
+		methods:{
+			peplace(){
+				router.replace({path:"/news"})   //不使用历史记录，这个不能使用router-link这个标签
+				// router.push({})  ====> router-link			
+			}
+		}
+	})
+</script>
+</html>

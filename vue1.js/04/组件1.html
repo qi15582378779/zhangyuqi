@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<h3>我爱打游戏</h3>
+		<zyq></zyq>
+	</div>
+	<div id="box2">
+		<zyq></zyq>
+	</div>
+	<div id="box3">
+		
+	</div>
+</body>
+<script>
+	//构造一个组件,这是全局组件
+	var zj=Vue.extend({
+		//  套标签的时候，要在外边套一个根元素
+		template:"<div><h3>我要上王者.....</h3><h4>打遍天下无敌手...</h4></div>"
+	});
+	//组件注册
+	Vue.component("zyq",zj);
+	var vm=new Vue({
+		el:"#box",
+		data:{
+
+		},
+		methods:{
+
+		}
+	});
+	var vm=new Vue({
+		data:{
+
+		},
+		methods:{
+
+		}
+	}).$mount("#box2");
+</script>
+</html>

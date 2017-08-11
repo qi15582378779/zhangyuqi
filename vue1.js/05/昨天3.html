@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>父子</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+	<div id="box">
+		<my-aaa></my-aaa>
+		<hr />
+	</div>	
+	</body>
+<template id="aaa">
+	<div>
+		<button @click='aShow'>按钮</button>
+		{{ops.test}}
+		<div v-show='isa' style="width: 200px;height: 200px;background-color: #00FFFF;"></div>
+	    <my-bbb :isb='isa' :msgb='msg' :testb='ops'></my-bbb>
+	    
+	</div>
+</template>	
+	<script>
+		new Vue({
+			el:"#box",
+			components:{
+				'my-aaa':{
+					template:"#aaa",
+					data(){
+						return{
+							isa:true,
+							msg:'我是父组件的数据',
+							ops:{test:"我是练习数据"}  //testb.test
+						}
+					},
+					methods:{
+						aShow(){
+							this.isa=!this.isa
+						}
+					},
+					components:{
+					'my-bbb':{  //父组件里面内容隐藏 子组件里面内容一样隐藏
+						template:`
+						<div>
+						<h3 v-show="isb">我是子组件</h3>{{msgb}}</br>
+						<span @click="change">{{h}}</span>
+						<button @click="changeb">我用来修改testb</button>
+						{{testb.test}}
+						</div>`,
+						props:['isb','msgb','testb'],
+						data(){
+							return{
+								h:""
+							}
+						},
+						mounted(){
+							this.h=this.msgb
+						},
+						methods:{
+							change(){
+								this.h='数据已经被修改'
+							},
+							changeb(){
+								this.testb.test='这个也被我修改了'
+							}
+						}
+						
+					}
+				}
+				},
+
+			}
+		})
+	</script>
+</html>

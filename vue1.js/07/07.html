@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+*昨日反馈
+
+
+cnpm
+npm install -g cnpm --registry=https://registry.taobao.org
+
+
+今日内容：
+
+1.vue脚手架的使用
+
+vue-cli
+
+
+1.1 安装
+cnpm install -g vue-cli
+
+输入 vue
+弹出提示指令
+验证成功
+
+
+1.2 构建
+vue init webpack 名字
+         webpack-simple 名字
+
+* 对话框    ？
+  use ESLint to lint your code ? n
+  unit test                      n
+  e2e  test                      n
+
+1.3运行 
+
+cd 名字                          //进入项目
+
+cnpm install        // 补齐文件依赖
+
+npm run dev   ==> vue 启动指令（默认）
+
+1.4特性
+2.X  自动弹出项目
+
+热更新  每次修改 无需重新启动项目
+		
+		
+下午目标：
+1.文件结构   webpack
+
+1.1 package.json
+
+script:{
+	"build": "node build/build.js"
+	<!-- node  运行   build/build.js -->
+	<!--
+	npm run build    ==> 为了项目上线前 打包
+	打包 ：  需要将页面打包	
+	
+	突然多了一个文件  dist 
+	
+	文件 就因该放在一个 HTTP服务器上面  打开 index.html
+	
+	err:   net::ERR_FILE_NOT_FOUND
+		
+	-->
+}
+dependencies :{   生产模式  --》 上线
+	
+}
+devDependencies:{  开发
+	"webpack-hot-middleware": "^2.18.0",    热更新
+}
+
+build 文件夹
+build.js   打包
+
+webpack.base.config     10行  
+四大特性
+enter  入口
+output 输出
+loader 加载器
+plugins 插件
+
+config文件
+index.js  ==》 端口号是什么
+proxyTable: {},    代理
+
+
+src 文件夹===> 代码 资源
+
+main.js  ==> 入口文件
+<!-- var express=require('express')  -->
+import XXX from "***"      ***可以使路径，模块的名字
+用来引入 某些外部模块、文件、框架、插件 。。。
+
+
+暴露  
+<!-- exports.XX  model.exports=XX -->
+
+export default {
+	<!-- 我要暴露的内容 -->
+}
+
+
+
+
+
+
+
+static ==》 使用的资源
+
+
+
+
+
+2.*使用 v-cli 搭建自己的项目==》   
+
+		
+		
+		
+	</body>
+</html>

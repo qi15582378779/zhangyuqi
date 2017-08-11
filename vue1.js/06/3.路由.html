@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+</head>
+<body>
+	<div id="box">
+		<router-link to="/home">主页</router-link>
+		<router-link to="/news">新闻</router-link>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+</body>
+<script>
+	const Home={
+		template:`<div>
+			<h1>这是主页</h1>
+		</div>`
+	};
+	const News={
+		template:`<div>
+			<h1>我是新闻页</h1>
+			<ul>
+				<li><router-link to="/news/newshello1">二级路由1</router-link></li>
+				<li><router-link to="/news/newshello2">二级路由2</router-link></li>
+				<li><router-link to="/news/newshello3">二级路由3</router-link></li>
+			</ul>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>`
+	};
+	const Newshello1={
+		template:`<div>
+			<h2>我帅不帅</h2>
+		</div>`
+	};
+	const Newshello2={
+		template:`<div>
+			<h2>你猜</h2>
+		</div>`
+	};
+	const Newshello3={
+		template:`<div>
+			<h2>帅到没朋友</h2>
+		</div>`
+	};
+	const routes=[
+		{path:"/home",component:Home},
+		{path:"/news",component:News,children:[
+			{path:"newshello1",component:Newshello1},
+			{path:"newshello2",component:Newshello2},
+			{path:"newshello3",component:Newshello3}
+		]}
+	];
+	var router=new VueRouter({
+		routes
+	});
+	var vm=new Vue({
+		el:"#box",
+		router
+	})
+</script>
+</html>

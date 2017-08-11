@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<p>{{a}}</p>
+		<ul>
+			<li v-for="i in b">{{i}}</li>
+		</ul>
+		<my-com :i="a"></my-com>
+	</div>
+</body>
+<template id="app">
+	<div>
+		<hr />
+		<h2>我是子组件</h2>
+		<button @click="change()">子组件更新</button>
+		<p>{{i}}</p>
+		<h4>组件保存的数据h的内容是: {{h}}</h4>
+	</div>
+</template>
+<script>
+	new Vue({
+		el:"#box",
+		data:{
+			a:"hello!",
+			b:[1,2,4,8,6,7]
+		},
+		components:{
+			"my-com":{
+				template:"#app",
+				props:["i"],
+				data(){
+					return{
+						h:''   //初始化
+						       //这个h就是一个中间量用来接受  从父级获得的数据，这样直接修改h的值就可以了
+					}
+				},
+				mounted(){
+					this.h=this.i
+					//在我组件挂载的时候就进行储存
+				},
+				methods:{
+					change(){
+						console.log(this.i);
+						console.log(this.h)
+						this.h="这是修改的数据"
+					}
+				}
+			}
+		}
+	})
+</script>
+</html>
